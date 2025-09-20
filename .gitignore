@@ -1,0 +1,7 @@
+.vscode/
+media/
+__pycache__/
+*.pyc
+study/migrations/*
+!study/migrations/__init__.py
+db.sqlite3

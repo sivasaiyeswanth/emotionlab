@@ -1,0 +1,5 @@
+<h2>Before Watching Clip: {{ clip.title }} ({{ clip_index|add:1 }} / {{ total_clips }})</h2>
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Continue to Clip</button>
+</form>

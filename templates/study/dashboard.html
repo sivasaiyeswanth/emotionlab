@@ -1,0 +1,17 @@
+<h1>Hi {{ user.get_username }}! Your decisions matter.</h1>
+
+<form method="post" action="{% url 'logout' %}?next={% url 'login' %}" style="display:inline">
+  {% csrf_token %}
+  <button type="submit">Logout</button>
+</form>
+
+{% if next_clip %}
+  <h2>Next Clip to Watch</h2>
+  <strong>{{ next_clip.title }}</strong> (Order: {{ next_idx|add:1 }})
+  <form method="get" action="{% url 'study:start_session' next_idx %}" style="display:inline">
+    <button>Start / Answer</button>
+  </form>
+{% else %}
+  <p>All clips completed!</p>
+{% endif %}
+

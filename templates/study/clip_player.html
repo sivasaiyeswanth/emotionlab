@@ -1,0 +1,18 @@
+<h2>{{ clip.title }} ({{ clip_index|add:1 }} / {{ total_clips }})</h2>
+<video id="clipVideo" src="{{ clip.file.url }}" controls autoplay width="800" onended="showQuestions()"></video>
+<br>
+<button onclick="skip(-5)">⏪ Back 5s</button>
+<form id="questionsForm" method="get" action="{% url 'study:clip_questions' clip.id %}" style="display:none">
+  <button type="submit">Answer Questions</button>
+</form>
+
+<script>
+function skip(seconds) {
+  var video = document.getElementById('clipVideo');
+  video.currentTime += seconds;
+}
+function showQuestions() {
+  document.getElementById('questionsForm').style.display = 'inline';
+}
+
+</script>

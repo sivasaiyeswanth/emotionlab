@@ -1,0 +1,6 @@
+<h1>After all clips</h1>
+<p>Please tell us how you feel now.</p>
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Finish Session</button>
+</form>
